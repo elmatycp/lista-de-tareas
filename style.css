@@ -1,0 +1,451 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Modak&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%; /* Define la altura de referencia para porcentajes */
+}
+
+main{
+    /* height: 100vh; */
+    height: 100%;
+    background-color: #d89ff7 ; 
+    position: relative;
+    overflow-x: hidden;
+}
+
+.notificacion{
+    position: absolute;
+    width: 160px;
+    height: 60px;
+    background: #FB97B7;
+    right: 0;
+    top: 65px;
+    transform: translateX(150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 5px 0px 0px 5px;
+    gap: 5px;
+}
+
+.notificacion img{
+    height: 30px;
+    width: auto;
+}
+
+.notificacion p{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.notificacion.mostrar-animacion{
+    animation-name: trasladar;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.notificacion.quitar-animacion{
+    animation-name: regresar;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes trasladar{
+    0%{
+        transform: translateX(150px);
+    }
+
+
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes regresar{
+    0%{
+        transform: translateX(0px);
+    }
+
+    100%{
+        transform: translateX(170px);
+    }
+}
+
+.notificacion-agregar{
+    border-radius: 5px 0px 0px 5px;
+}
+
+i{
+    pointer-events: none;
+}
+
+.ventana-eliminar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: start;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.contenedor-eliminar{
+    background-color: #fff;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    height: 20%;
+    margin: 20px 10px 0px 10px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contenedor-eliminar h6{
+    color: #454545;
+    font-size: 17px;
+    text-align: center;
+}
+
+.optiones-eliminar button{
+    border: none;
+    background-color: #FB97B7;
+    color: #fff;
+    font-size: 15px;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.contenedor-eliminar img{
+    position: absolute;
+    left: 15px;
+    bottom: -10px;
+    z-index: 3000;
+    width: 60px;
+    transform: rotate(0);
+    height: auto;
+}
+
+.btn-cerrar-eliminar{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.ventana-crear{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: start;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.mostrar{
+    display: flex;
+}
+
+.contenedor-crear-tarea{
+    width: 100%;
+    max-width: 400px;
+    height: 25%;
+    margin: 20px 10px 0px 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%); /* Empieza fuera de la pantalla */
+    opacity: 0; /* Invisible al inicio */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Animación suave */
+}
+
+.ventana-crear.mostrar .contenedor-crear-tarea {
+    transform: translateY(0); /* Baja al centro */
+    opacity: 1; /* Visible */
+}
+
+.titulo{
+    height: 35%;
+    display: flex;
+    align-items: end;
+}
+
+.titulo h6{
+    color: #FB97B7;
+    font-size: 19px;
+}
+
+.contenedor-input-crear-tarea{
+    height: 50%;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    padding: 5px 0px 5px 0px;
+}
+
+.contenedor-input-crear-tarea input{
+    height: 50%;
+    width: 100%;
+    padding: 5px;
+}
+
+input[name='crear-tarea']{
+    border: #d89ff7 solid 1px;
+    outline: none;
+    color: #454545;
+    border-radius: 3px;
+}
+
+input[name='crear-tarea']:focus{
+    border: #d89ff7 solid 2px;
+}
+
+
+.contenedor-btn-crear-tarea{
+    height: 15%;
+    text-align: end;
+}
+
+.contenedor-btn-crear-tarea button{
+    border: none;
+    background-color: #FB97B7;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-cerrar-ventana{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.fi-br-x{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #454545;
+    pointer-events: none;
+}
+
+.contenedor-crear-tarea img{
+    position: absolute;
+    left: 15px;
+    bottom: -20px;
+    z-index: 3000;
+    width: 60px;
+    transform: rotate(-25deg);
+    height: auto;
+}
+
+
+.contenedor-lista-tarea{
+    margin: 0 auto;
+    max-width: 700px;
+    height: 100%;
+    background-color: #f1d7ff;
+}
+
+.contenedor-header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e0b0ff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-header img{
+    height: 70px;
+    width: auto;
+    margin-right: 10px;
+    filter: drop-shadow(1px 1px 5px purple);
+}
+
+.contenedor-header h1{
+    font-size: 24px;
+    font-family: "Modak", system-ui;
+    font-weight: 200;
+    margin-left: 10px;
+    color: #454545;
+    
+}
+
+.content-main{ 
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista{
+    height: 100%;
+    width: 200%;
+    padding: 25px 15px;
+}
+
+.btn-crear-tarea{
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    border: dashed 2.5px #454545;
+    background-color: #B38DCC;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bolder;
+    color: #454545;
+}
+
+.lista-tarea{
+    height: 90%;
+    padding: 20px 0px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    position: relative;
+}
+
+.tarea-arrastrando{
+    opacity: 0.5;
+    border: 2px dashed #454545;
+    background-color: #f0f8ff;
+    cursor: grabbing;
+}
+
+.contenedor-tarea{
+    display: flex;
+    width: 100%;
+    min-height: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.content-info{
+    width: 70%;
+    height: 100%;
+}
+
+.tarea{
+    display: flex;
+    height: 100%;
+}
+
+.contenedor-check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 7px;
+}
+
+.contenedor-check input{
+    height: 18px;
+    width: 18px;
+}
+
+
+input[type='checkbox']{
+    accent-color: #B38DCC;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.info p{
+    font-size: 14px;
+}
+
+.content-opciones{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items: center;
+}
+
+.content-opciones button{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+.fi-ts-trash-xmark{
+    color: red;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.fi-tc-edit{
+    color: green;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+footer{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: "Jost", serif;
+    font-weight: 600;
+    /* color: #FB97B7; */
+    color: #454545;
+    background-color: #B38DCC;
+}
+

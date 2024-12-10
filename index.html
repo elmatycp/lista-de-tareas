@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-chubby/css/uicons-thin-chubby.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+</head>
+<body>
+    <main>
+        <article class="contenedor-lista-tarea">
+            <header class="contenedor-header">
+                <h1>Lista de Tareas</h1>
+                <img src="img/pngwing.com.png" alt="imagen de kuromin">
+            </header>
+            <section class="content-main">
+                <div class="lista">
+                    <button class="btn-crear-tarea">Nueva Tarea</button>
+                    <div class="lista-tarea"></div>
+                    <template id="template-tarea">
+                        <div class="contenedor-tarea">
+                            <div class="content-info">
+                                <div class="tarea">
+                                    <div class="contenedor-check">
+                                        <input type="checkbox" class="checkbox">
+                                    </div>
+                                    <div class="info">
+                                        <p>Tarea 1</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-opciones">
+                                <button class="btn-editar"><i class="fi fi-tc-edit"></i></button>
+                                <button class="btn-eliminar"><i class="fi fi-ts-trash-xmark"></i></button>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </section>
+            <footer>
+                <span>💜</span><p>I love you vi</p><span>💜</span>
+            </footer>
+        </article>
+        <div class="ventana-crear ">
+            <div class="contenedor-crear-tarea">
+                <img src="img/kuromi-2.png" alt="kuromi">
+                <div class="titulo">
+                    <h6>Crear Tarea</h6>
+                </div>
+                <div class="contenedor-input-crear-tarea">
+                    <input type="text" name="crear-tarea" id="input-text" placeholder="Dar comida a kitty">
+                </div>
+                <div class="contenedor-btn-crear-tarea">
+                    <button id="btn-dios">Crear</button>
+                </div>
+                <button class="btn-cerrar-ventana"><i class="fi fi-br-x"></i></button>
+            </div>
+            
+        </div>
+        <div class="ventana-eliminar">
+            <div class="contenedor-eliminar">
+                <button class="btn-cerrar-eliminar"><i class="fi fi-br-x"></i></button>
+                <h6>¿Desea eliminar esta tarea?</h6>
+                <div class="optiones-eliminar">
+                    <button class="btn-eliminar-cancelar">Cancelar</button>
+                    <button class="btn-eliminar-aceptar">Aceptar</button>
+                </div>
+                <img src="img/kuromi-3.png" alt="kuromi">
+            </div>
+        </div>
+        <template id="template-notificaciones">
+            <div class="notificacion notificacion-agregar" data-type="agregar">
+                <img src="img/kuromi-4.png" alt="kuromi">
+                <p>Tarea Agregada</p>
+            </div>
+            <div class="notificacion notificacion-modificar" data-type="editar">
+                <img src="img/kuromi-5.png" alt="">
+                <p>Tarea Editada</p>
+            </div>
+            <div class="notificacion notificacion-eliminar" data-type="eliminar">
+                <img src="img/kuromi-6.png" alt="">
+                <p>Tarea Eliminada</p>
+            </div>
+        </template>
+    </main>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
